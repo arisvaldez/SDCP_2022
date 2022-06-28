@@ -23,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore SDC_Book_Api
     - name: Test
-      run: dotnet test Core.Facts --no-build --verbosity normal 
+      run: dotnet test --no-build --verbosity normal 
