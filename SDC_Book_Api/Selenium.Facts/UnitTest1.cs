@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using OpenQA.Selenium.Chrome;
 
 namespace Selenium.Facts
 {
@@ -7,6 +8,10 @@ namespace Selenium.Facts
         [SetUp]
         public void Setup()
         {
+            ChromeOptions ChromeOptions = new();
+            ChromeOptions.AddArgument("--headless");
+            ChromeDriver webDriver = new(ChromeOptions);
+            webDriver.Manage().Window.Maximize();
         }
 
         [Test]
