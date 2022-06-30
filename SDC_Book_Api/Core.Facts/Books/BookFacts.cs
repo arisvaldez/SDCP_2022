@@ -18,5 +18,10 @@ namespace Core.Facts.Books
 
         }
 
+        public void Retrieve_All_Books()
+        {
+            
+        }
+
     }
 }

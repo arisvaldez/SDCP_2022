@@ -22,6 +22,6 @@ export class ListComponent implements OnInit {
   }
 
   public get totalBooks():number{
-    return this.books.length;
+    return this.books.length || 0;
   }
 }
