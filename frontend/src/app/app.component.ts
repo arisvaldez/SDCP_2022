@@ -1,4 +1,3 @@
-import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,11 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
-  constructor ( private authService : AuthService){
-
-    this.authService.test().subscribe({
-      next:console.log
-    });
-  }
+  constructor (){}
 }
 
