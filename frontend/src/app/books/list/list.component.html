@@ -1,4 +1,4 @@
-<div id="total-books">Listado de libros {{totalBooks}}</div>
+<div id="total-books">Listado de libros ({{totalBooks}})</div>
 <div id="books-table-container" style="display: block;">
     <table>
         <thead>
@@ -12,7 +12,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngIf="totalBooks == 0"  id="no-books-message">No hay libros disponibles</tr>
             <tr *ngFor="let book of books;let indexElement=index" [id]="(indexElement+1)+'-book-row'">
                 <td id="title-cell">{{book.title}}</td>
                 <td id="isbn-cell">{{book.ISBN}}</td>
@@ -22,4 +21,5 @@
                 <td id="available-cell">{{book.avaliable}}</td>
         </tbody>
     </table>
+    <div *ngIf="totalBooks == 0"  id="no-books-message">No hay libros disponibles</div>
 </div>
