@@ -1,6 +1,4 @@
-﻿using Core.Books;
-using Core.Boundaries.Persistence;
-using Microsoft.AspNetCore.Http;
+﻿using Core.Boundaries.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
 namespace SDC_Book_Api.Controllers
