@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using Persistence.Repositories;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Persistence.Facts.Repositories
 {
@@ -16,17 +15,18 @@ namespace Persistence.Facts.Repositories
             Assert.That(() => bookRepository.Persist(newBook), Throws.Nothing);
 
         }
+            
 
         [Test]
         public void Increase_Lenght_When_Persists()
         {
-            Book newBook = new Book("Pepe", "978-0-99-702549-1", new List<string>() { "PEPE" });
+            Book newBook = new Book("Pepe", "978-0-99-702549-1", new List<string>{ "PEPE" });
             BookRepository bookRepository = new BookRepository();
-            int booksLength = BookRepository.Books.Count;
+            int booksLength = bookRepository.BooksLenght();
 
             newBook.Persist(bookRepository);
 
-            Assert.That(() => BookRepository.Books.Count, Is.GreaterThan(booksLength + 1));
+            Assert.That(() => bookRepository.BooksLenght(), Is.EqualTo(booksLength + 1));
         }
     }
 }

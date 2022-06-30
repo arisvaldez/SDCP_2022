@@ -1,4 +1,5 @@
 ﻿using Core.Books;
+using Core.Boundaries.Persistence;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -9,13 +10,18 @@ namespace SDC_Book_Api.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
+
+        private IBookRepository _bookRepository;
+
+        public BooksController(IBookRepository bookRepository)
+        {
+            this._bookRepository = bookRepository;
+        }
+
         [HttpGet]
         public IActionResult Retrieve()
         {
-            IEnumerable<Book> books = new List<Book>()
-            {
-                new Book("Titulo", "1234",new string[]{ "Feliz Bautista" })
-            };
+            var books = this._bookRepository.RetrieveAll();
 
             return Ok(books);
         }
