@@ -18,5 +18,29 @@ namespace Core.Facts.Books
         {
             Assert.That(() => new Book(null, null, new List<string>()), Throws.ArgumentNullException);
         }
+
+        [Test]
+        public void With_Null_Title_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, null, null), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void With_Empty_Title_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book("", null, null), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void With_Null_ISBN_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, null, null), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void With_Empty_ISBN_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, "", null), Throws.ArgumentNullException);
+        }
     }
 }
