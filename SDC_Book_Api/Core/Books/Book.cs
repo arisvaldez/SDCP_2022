@@ -13,14 +13,21 @@
         //}
         public Book(string title, string isbn, IEnumerable<string> authors)
         {
-            if (authors == null)
-            {
-               throw new ArgumentNullException(nameof(authors));    
-            }
-            this.Title = title;
-            this.ISBN = isbn;   
-            this.Authors = authors;
+            ValidateAuthorsIsValid(authors);
 
+            Title = title;
+            ISBN = isbn;   
+            Authors = authors;
+        }
+
+        private void ValidateAuthorsIsValid(IEnumerable<string> authors)
+        {
+            bool isAuthorValid = authors == null || !authors.Any();
+
+            if (isAuthorValid)
+            {
+                throw new ArgumentNullException(nameof(authors));
+            }
         }
     }
 }
