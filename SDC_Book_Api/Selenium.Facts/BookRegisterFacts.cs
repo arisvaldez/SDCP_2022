@@ -50,7 +50,6 @@ namespace Selenium.Facts
             bool existMessage = titleError.Text.Contains(@"El titulo es requerido");
 
             Assert.That(existMessage, Is.True);
-
         }
 
         [Test]
@@ -70,7 +69,37 @@ namespace Selenium.Facts
             bool existMessage = titleError.Text.Contains(@"El ISBN es requerido");
 
             Assert.That(existMessage, Is.True);
+        }
 
+        [Test]
+        public void Validate_Author_Is_Required_Show_Message()
+        {
+            IWebElement authors = GetById("authors");
+            IWebElement submit = GetById("send");
+
+            submit.Click();
+
+            WebDriverWait wait = new(webDriver, TimeSpan.FromSeconds(1));
+
+            IWebElement titleError = wait.Until(expectCondition => expectCondition.FindElement(By.Id("authors-required")));
+
+            Assert.IsTrue(titleError.Displayed);
+
+            bool existMessage = titleError.Text.Contains(@"El campo 'Autores' es requerido");
+
+            Assert.That(existMessage, Is.True);
+        }
+
+        [Test]
+        public void Validate_Authors_Error_Does_Not_Exist_With_Not_Submit()
+        {
+            WebDriverWait wait = new(webDriver, TimeSpan.FromSeconds(1));
+            Assert.Throws<WebDriverTimeoutException>(() => wait.Until(expectCondition => expectCondition.FindElement(By.Id("authors-required"))));
+        }
+
+        private IWebElement GetById(string idElement)
+        {
+            return webDriver.FindElement(By.Id(idElement));
         }
 
         [TearDown]
