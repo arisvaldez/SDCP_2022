@@ -156,6 +156,19 @@ namespace Selenium.Facts
             Assert.Pass();
         }
 
+        [Test]
+        public void Press_Back_Button_Move_Register_Form()
+        {
+            IWebElement backButton = webDriver.FindElement(By.Id("back-button"));
+            
+            backButton.Click();
+
+            bool moveBackPage = webDriver.Url == "http://localhost:4200/";
+
+            Assert.IsTrue(moveBackPage);
+
+        }
+
         [TearDown]
         public void Cleandriver()
         {
