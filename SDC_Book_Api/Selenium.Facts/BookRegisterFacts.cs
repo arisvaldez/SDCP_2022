@@ -11,6 +11,7 @@ namespace Selenium.Facts
      * 3. ISBN is unique
      * 4. Year is a positive integer
      */
+    [TestFixture]
     public class BookRegisterFacts
     {
         private ChromeDriver webDriver;

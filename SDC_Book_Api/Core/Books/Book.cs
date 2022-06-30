@@ -6,9 +6,9 @@ namespace Core.Books
     {
         public string Title { get; } = string.Empty;
         public string ISBN { get; } = string.Empty;
+        public IEnumerable<string> Authors { get; } = new List<string>();
 
-
-        public Book(string title, string isbn)
+        public Book(string title, string isbn, IEnumerable<string> authors)
         {
 
             if (string.IsNullOrEmpty(title))
@@ -20,9 +20,16 @@ namespace Core.Books
             {
                 throw new ArgumentNullException("El ISB no puede estar nulo ni vacio");
             }
+            
+            if (authors == null)
+            {
+               throw new ArgumentNullException(nameof(authors));    
+            }
+
 
             this.Title = title;
             this.ISBN = isbn;
+              this.Authors = authors;
         }
 
         public void Persist(IBookRepository bookRepository)
