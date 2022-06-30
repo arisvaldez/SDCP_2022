@@ -10,5 +10,7 @@ namespace Core.Boundaries.Persistence
     public interface IBookRepository
     {
         public Task Persist(Book book);
+
+        public IEnumerable<Book> RetrieveAll();
     }
 }

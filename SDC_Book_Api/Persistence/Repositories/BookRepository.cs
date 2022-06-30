@@ -9,5 +9,10 @@ namespace Persistence.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<Book> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
