@@ -1,15 +1,13 @@
 ﻿using Core.Books;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Core.Boundaries.Persistence;
 
 namespace Persistence.Repositories
 {
-    internal class BookRepository
+    internal class BookRepository : IBookRepository
     {
-       
-
+        public Task Persist(Book book)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
