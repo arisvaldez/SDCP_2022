@@ -8,11 +8,15 @@ namespace Core.Facts.Books
     internal class ConstructorFacts
     {
         [Test]
-        public void With_Null_Throws_ArgumentNullException()
+        public void With_Null_Authors_Throws_ArgumentNullException()
         {
             Assert.That(() => new Book(null,null,null), Throws.ArgumentNullException);
         }
 
-       
+        [Test]
+        public void With_Empty_Authors_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, null, new List<string>()), Throws.ArgumentNullException);
+        }
     }
 }

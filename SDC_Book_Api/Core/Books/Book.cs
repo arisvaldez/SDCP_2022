@@ -20,21 +20,26 @@ namespace Core.Books
             {
                 throw new ArgumentNullException("El ISB no puede estar nulo ni vacio");
             }
-            
-            if (authors == null)
-            {
-               throw new ArgumentNullException(nameof(authors));    
-            }
 
+            ValidateAuthorsIsValid(authors);
 
             this.Title = title;
             this.ISBN = isbn;
-              this.Authors = authors;
+            this.Authors = authors;
         }
+        private void ValidateAuthorsIsValid(IEnumerable<string> authors)
+        {
+            bool isAuthorValid = authors == null || !authors.Any();
 
+            if (isAuthorValid)
+            {
+                throw new ArgumentNullException(nameof(authors));
+            }
+        }
         public void Persist(IBookRepository bookRepository)
         {
             bookRepository.Persist(this);
         }
     }
 }
+
