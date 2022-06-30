@@ -36,6 +36,7 @@ namespace Core.Books
                 throw new ArgumentNullException(nameof(authors));
             }
         }
+
         public void Persist(IBookRepository bookRepository)
         {
             bookRepository.Persist(this);

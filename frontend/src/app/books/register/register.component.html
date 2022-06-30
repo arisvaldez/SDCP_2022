@@ -1,7 +1,7 @@
 <div>
-  <span *ngIf="titleControl.hasError && submit" id="title-required">El titulo es requerido</span>
-  <span *ngIf="isbnControl.hasError && submit" id="isbn-required">El ISBN es requerido</span>
-  <span *ngIf="authorsControl.hasError && submit" id="authors-required">El campo 'Autores' es requerido</span>
+  <span *ngIf="titleControl.errors && submit" id="title-required">El titulo es requerido</span>
+  <span *ngIf="isbnControl.errors && submit" id="isbn-required">El ISBN es requerido</span>
+  <span *ngIf="authorsControl.errors && submit" id="authors-required">El campo 'Autores' es requerido</span>
 </div>
 <form [formGroup]="formGroup" (submit)="onSubmit()">
   <input type="text" formControlName="title" id="title" />

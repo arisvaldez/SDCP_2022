@@ -98,6 +98,27 @@ namespace Selenium.Facts
             Assert.Throws<WebDriverTimeoutException>(() => wait.Until(expectCondition => expectCondition.FindElement(By.Id("authors-required"))));
         }
 
+        [Test]
+        public void Validate_Send_Authors_Separate_For_Commas_Receive_2_Authors()
+        {
+            IWebElement authors = GetById("authors");
+            IWebElement title = GetById("title");
+            IWebElement isbn = GetById("isbn");
+            IWebElement button = GetById("send");
+
+            title.SendKeys("CODE");
+            isbn.SendKeys("FDTE5646");
+            authors.SendKeys("wilvel, reyfi");
+
+            button.Click();
+
+            WebDriverWait wait = new(webDriver, TimeSpan.FromSeconds(1));
+
+            IWebElement titleError = wait.Until(expectCondition => expectCondition.FindElement(By.Id("")));
+
+
+        }
+
         private IWebElement GetById(string idElement)
         {
             return webDriver.FindElement(By.Id(idElement));

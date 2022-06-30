@@ -15,8 +15,6 @@ namespace Core.Facts.Books
             IBookRepository repository = NSubstitute.Substitute.For<IBookRepository>();
 
             Assert.That(() => book.Persist(repository), Throws.Nothing);
-
         }
-
     }
 }
