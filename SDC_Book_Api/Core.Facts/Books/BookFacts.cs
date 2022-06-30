@@ -14,12 +14,12 @@ namespace Core.Facts.Books
         [Test]
         public void Persist_Throw_Exception_When_Title_Is_Null()
         {
-            Book book = new Book(null, "ISBN");
+            Book book = new Book("Blanca Nieve", "ISBN", new List<string> { "Pepe", "Jose" });
 
             IBookRepository repository = NSubstitute.Substitute.For<IBookRepository>();
 
-            Assert.Throws<ArgumentNullException>(() => book.Persist(repository));
-            
+            Assert.That(() => book.Persist(repository), Throws.Nothing);
+
         }
 
     }
