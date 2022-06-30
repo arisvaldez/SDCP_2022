@@ -20,6 +20,30 @@ namespace Core.Facts.Books
         }
 
         [Test]
+        public void With_Null_Title_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, null, null), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void With_Empty_Title_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book("", null, null), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void With_Null_ISBN_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, null, null), Throws.ArgumentNullException);
+        }
+
+        [Test]
+        public void With_Empty_ISBN_Throws_ArgumentNullException()
+        {
+            Assert.That(() => new Book(null, "", null), Throws.ArgumentNullException);
+        }
+
+        [Test]
         public void With_WhithSpace_Authors_Throws_ArgumentNullException()
         {
             List<string> authours = new() { " ", "  " };
