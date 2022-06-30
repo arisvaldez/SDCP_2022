@@ -4,17 +4,18 @@
     {
         public string Title { get; set; } = string.Empty;
         public string ISBN { get; set; } = string.Empty;
+        public IEnumerable<string> Authors { get; set; } = new List<string>();
 
 
         //public void Persist(BookRepository bookRepository)
         //{
 
         //}
-        public Book(string title, string isbn)
+        public Book(string title, string isbn, IEnumerable<string> authors)
         {
             this.Title = title;
             this.ISBN = isbn;   
+            this.Authors = authors;
         }
-        public List<string> Authors { get; set; } = new List<string>();
     }
 }
