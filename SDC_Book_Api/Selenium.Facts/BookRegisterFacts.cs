@@ -22,6 +22,15 @@ namespace Selenium.Facts
             ChromeOptions.AddArgument("--headless");
             webDriver = new(ChromeOptions);
             webDriver.Manage().Window.Maximize();
+            webDriver.Url = "http://localhost:4200/";
+            webDriver.Navigate();
+        }
+
+        [Test]
+        public void Validate_Title_Error_Does_Not_Exist_With_Not_Submit()
+        {
+            WebDriverWait wait = new(webDriver, TimeSpan.FromSeconds(8));
+            Assert.Throws<WebDriverTimeoutException>(() => wait.Until(expectCondition => expectCondition.FindElement(By.Id("title-required"))));
         }
 
         [Test]
@@ -39,6 +48,26 @@ namespace Selenium.Facts
 
             Assert.IsTrue(titleError.Displayed);
             bool existMessage = titleError.Text.Contains(@"El titulo es requerido");
+
+            Assert.That(existMessage, Is.True);
+
+        }
+
+        [Test]
+        public void Validate_ISBN_Is_Required_Show_Message()
+        {
+            IWebElement title = webDriver.FindElement(By.Id("isbn"));
+            IWebElement button = webDriver.FindElement(By.Id("send"));
+
+            title.SendKeys(string.Empty);
+            button.Click();
+
+            WebDriverWait wait = new(webDriver, TimeSpan.FromSeconds(8));
+
+            IWebElement titleError = wait.Until(expectCondition => expectCondition.FindElement(By.Id("isbn-required")));
+
+            Assert.IsTrue(titleError.Displayed);
+            bool existMessage = titleError.Text.Contains(@"El ISBN es requerido");
 
             Assert.That(existMessage, Is.True);
 

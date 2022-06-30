@@ -1,4 +1,9 @@
-<form action="">
-  <input type="text" id="Title" />
+<div>
+  <span *ngIf="titleControl.hasError && submit" id="title-required">El titulo es requerido</span>
+  <span *ngIf="titleControl.hasError && submit" id="isbn-required">El ISBN es requerido</span>
+</div>
+<form [formGroup]="formGroup" (submit)="onSubmit()">
+  <input type="text" formControlName="title" id="title" />
+  <input type="text" formControlName="isbn" id="isbn" />
+  <button type="submit" id="send">send</button>
 </form>
-dsfs
