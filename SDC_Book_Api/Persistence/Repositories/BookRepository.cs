@@ -23,5 +23,10 @@ namespace Persistence.Repositories
         {
             Books.Add(book);
         }
+
+        public IEnumerable<Book> RetrieveAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
