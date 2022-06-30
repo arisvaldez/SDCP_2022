@@ -10,7 +10,9 @@ namespace Core.Facts.Books
         [Test]
         public void With_Null_Throws_ArgumentNullException()
         {
-            Assert.That(() => new Book(null,null,new List<string>()), Throws.ArgumentNullException);
+            Assert.That(() => new Book(null,null,null), Throws.ArgumentNullException);
         }
+
+       
     }
 }
