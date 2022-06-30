@@ -139,6 +139,23 @@ namespace Selenium.Facts
             Assert.Pass();
         }
 
+        [Test]
+        public void With_Books_Show_In_Table()
+        {
+            IWebElement totalBooks = webDriver.FindElement(By.Id("total-books"));
+
+            bool areBooksAvailable = totalBooks.Text != "Listado de libros (0)";
+
+            if (areBooksAvailable)
+            {
+                IWebElement firstElementInTable = webDriver.FindElement(By.Id("1-book-row"));
+
+                Assert.IsTrue(firstElementInTable.Displayed);
+            }
+
+            Assert.Pass();
+        }
+
         [TearDown]
         public void Cleandriver()
         {

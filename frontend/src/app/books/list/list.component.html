@@ -1,15 +1,25 @@
 <div id="total-books">Listado de libros {{totalBooks}}</div>
 <div id="books-table-container" style="display: block;">
     <table>
-        <tr>
-            <th id="title-header">Título</th>
-            <th id="isbn-header">ISBN</th>
-            <th id="author-header">Autor(es)</th>
-            <th id="year-header">Año</th>
-            <th id="tags-header">Tags</th>
-            <th id="available-header">Disponible</th>
-        </tr>
-
-        <tr *ngIf="totalBooks == 0"  id="no-books-message">No hay libros disponibles</tr>
+        <thead>
+            <tr>
+                <th id="title-header">Título</th>
+                <th id="isbn-header">ISBN</th>
+                <th id="author-header">Autor(es)</th>
+                <th id="year-header">Año</th>
+                <th id="tags-header">Tags</th>
+                <th id="available-header">Disponible</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="totalBooks == 0"  id="no-books-message">No hay libros disponibles</tr>
+            <tr *ngFor="let book of books;let indexElement=index" [id]="(indexElement+1)+'-book-row'">
+                <td id="title-cell">{{book.title}}</td>
+                <td id="isbn-cell">{{book.ISBN}}</td>
+                <td id="author-cell">{{book.authors}}</td>
+                <td id="year-cell">{{book.year}}</td>
+                <td id="tags-cell">{{book.tags}}</td>
+                <td id="available-cell">{{book.avaliable}}</td>
+        </tbody>
     </table>
 </div>
