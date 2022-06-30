@@ -120,7 +120,6 @@ namespace Selenium.Facts
             Assert.IsTrue(isContainerVisible);
         }
 
-        public void With_Not_Data_Show
 
         [TearDown]
         public void Cleandriver()
