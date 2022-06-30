@@ -22,12 +22,25 @@
 
         private void ValidateAuthorsIsValid(IEnumerable<string> authors)
         {
-            bool isAuthorValid = authors == null || !authors.Any();
-
+            bool isAuthorValid = authors == null || !authors.Any() || ValidateAuthorsIsNotWhiteSpace(authors);
+            
             if (isAuthorValid)
             {
                 throw new ArgumentNullException(nameof(authors));
             }
+        }
+
+        public bool ValidateAuthorsIsNotWhiteSpace(IEnumerable<string> authors)
+        {
+            foreach (string author in authors)
+            {
+                if (string.IsNullOrWhiteSpace(author))
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

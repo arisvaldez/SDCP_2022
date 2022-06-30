@@ -18,5 +18,12 @@ namespace Core.Facts.Books
         {
             Assert.That(() => new Book(null, null, new List<string>()), Throws.ArgumentNullException);
         }
+
+        [Test]
+        public void With_WhithSpace_Authors_Throws_ArgumentNullException()
+        {
+            List<string> authours = new() { " ", "  " };
+            Assert.That(() => new Book(null, null, authours), Throws.ArgumentNullException);
+        }
     }
 }
