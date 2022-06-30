@@ -1,4 +1,5 @@
 ﻿using Core.Books;
+using Core.Boundaries.Persistence;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,16 @@ namespace Core.Facts.Books
 {
     internal class BookFacts
     {
-    [Test]
-    public void Book_not_null()
+        [Test]
+        public void Persist_Throw_Exception_When_Title_Is_Null()
         {
-           
-        
+            Book book = new Book(null, "ISBN");
+
+            IBookRepository repository = NSubstitute.Substitute.For<IBookRepository>();
+
+            Assert.Throws<ArgumentNullException>(() => book.Persist(repository));
+            
         }
-        
+
     }
 }
