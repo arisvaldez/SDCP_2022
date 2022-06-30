@@ -16,5 +16,11 @@ namespace Core.Facts.Books
 
             Assert.That(() => book.Persist(repository), Throws.Nothing);
         }
+
+        public void Retrieve_All_Books()
+        {
+            
+        }
+
     }
 }
