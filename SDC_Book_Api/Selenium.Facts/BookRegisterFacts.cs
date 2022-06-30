@@ -90,6 +90,13 @@ namespace Selenium.Facts
             Assert.That(existMessage, Is.True);
         }
 
+        [Test]
+        public void Validate_Authors_Error_Does_Not_Exist_With_Not_Submit()
+        {
+            WebDriverWait wait = new(webDriver, TimeSpan.FromSeconds(1));
+            Assert.Throws<WebDriverTimeoutException>(() => wait.Until(expectCondition => expectCondition.FindElement(By.Id("authors-required"))));
+        }
+
         private IWebElement GetById(string idElement)
         {
             return webDriver.FindElement(By.Id(idElement));
