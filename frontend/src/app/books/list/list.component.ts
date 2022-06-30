@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
+  public totalBooks = 0;
   constructor() { }
 
   ngOnInit(): void {

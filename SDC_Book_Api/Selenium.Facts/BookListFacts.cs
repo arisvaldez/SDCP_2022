@@ -120,6 +120,24 @@ namespace Selenium.Facts
             Assert.IsTrue(isContainerVisible);
         }
 
+        [Test]
+        public void With_Not_Books_Show_In_Table()
+        {
+            IWebElement totalBooks = webDriver.FindElement(By.Id("total-books"));
+
+            bool areNotBooksAvaliable = totalBooks.Text == "Listado de libros (0)";
+
+            if (areNotBooksAvaliable)
+            {
+                IWebElement notElementsContainer = webDriver.FindElement(By.Id("no-books-message"));
+                string message = "No hay libros disponibles";
+                bool isMessageValid = notElementsContainer.Text == message;
+
+                Assert.IsTrue(isMessageValid);
+            }
+
+            Assert.Pass();
+        }
 
         [TearDown]
         public void Cleandriver()

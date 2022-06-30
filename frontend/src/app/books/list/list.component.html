@@ -1,3 +1,4 @@
+<div id="total-books">Listado de libros {{totalBooks}}</div>
 <div id="books-table-container" style="display: block;">
     <table>
         <tr>
@@ -8,5 +9,7 @@
             <th id="tags-header">Tags</th>
             <th id="available-header">Disponible</th>
         </tr>
+
+        <tr *ngIf="totalBooks == 0"  id="no-books-message">No hay libros disponibles</tr>
     </table>
 </div>
