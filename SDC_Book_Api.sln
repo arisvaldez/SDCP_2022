@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium.Facts", "SDC_Book_
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SDC_Book_Api", "SDC_Book_Api\SDC_Book_Api\SDC_Book_Api.csproj", "{CF51BE2B-EEED-449B-8890-B034101936A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.Facts", "SDC_Book_Api\Persistence.Facts\Persistence.Facts.csproj", "{AD617C4E-4FD6-4A6E-8994-49AA60AE9F72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{CF51BE2B-EEED-449B-8890-B034101936A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF51BE2B-EEED-449B-8890-B034101936A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF51BE2B-EEED-449B-8890-B034101936A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD617C4E-4FD6-4A6E-8994-49AA60AE9F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD617C4E-4FD6-4A6E-8994-49AA60AE9F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD617C4E-4FD6-4A6E-8994-49AA60AE9F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD617C4E-4FD6-4A6E-8994-49AA60AE9F72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{E2DFCE95-6ECE-44EB-B9EA-0EE4810D5CCC} = {2958926C-953F-4CB0-AD12-BD377024B279}
 		{0404F550-8F4B-4A88-BE5D-CF0922451678} = {10A77102-90B0-4777-82FA-E8D32A44AB1A}
 		{A9BA99C7-F7B7-4ED7-A06C-8B9D6A97AC32} = {10A77102-90B0-4777-82FA-E8D32A44AB1A}
+		{AD617C4E-4FD6-4A6E-8994-49AA60AE9F72} = {10A77102-90B0-4777-82FA-E8D32A44AB1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8F980A8F-167F-4CF3-889F-506890DABD24}

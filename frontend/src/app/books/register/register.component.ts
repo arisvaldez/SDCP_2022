@@ -13,6 +13,7 @@ export class RegisterComponent {
     this.formGroup = formBuilder.group({
       title: ['', [Validators.required]],
       isbn: ['', [Validators.required]],
+      authors: ['', [Validators.required]],
     });
   }
 
@@ -26,5 +27,9 @@ export class RegisterComponent {
 
   public get isbnControl() {
     return this.formGroup.controls['isbn'];
+  }
+
+  public get authorsControl() {
+    return this.formGroup.controls['authors'];
   }
 }
